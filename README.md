@@ -1,4 +1,4 @@
-**Project Description:** A blog on PostgreSQL deployed using Flask Flamework and SQLAlchemy as ORM with contaneirzization in Docker. Features included are CRUD, list of favorites, a REST API for addingg groups, and provided unit tests. 
+**Project Description:** A blog on PostgreSQL deployed using Flask Flamework and SQLAlchemy as ORM with contaneirization in Docker. Features included are CRUD, list of favorites, a REST API for addingg groups, and provided unit tests. 
 
 Prerequisites:
 1. Python 3.7 or higher
