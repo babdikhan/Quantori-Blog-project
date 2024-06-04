@@ -14,6 +14,21 @@ To run the tests, run pytest . in the directory
 
 To go to admin panel, got to /admin
 
+**Tests:**
+
+1. token Fixture:
+Sends a login request to the app with a predefined username and password.
+Retrieves an authentication token.
+Tests authenticated endpoints.
+
+2. give_own_post_id Fixture:
+Retrieves the ID of a post where the user is the owner (based on the token).
+Tests post-related functionality specific to the owner.
+
+3. give_not_own_post_id Fixture:
+Retrieves the ID of a post where the user is not the owner.
+Tests post-related functionality for non-owners.
+
 
 MIT License
 
