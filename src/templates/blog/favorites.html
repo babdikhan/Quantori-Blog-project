@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Posts{% endblock %}</h1>
+{% if g.user %}
+<a class="action" href="{{ url_for('blog.create') }}">New</a>
+{% endif %} {% endblock %} {% block content %} {% for post in posts %}
+<article class="post">
+  <header>
+    <div>
+      <h1>{{ post['title'] }}</h1>
+      <div class="about">
+        by {{ post['user_id'] }} on {{ post['created'].strftime('%Y-%m-%d') }}
+      </div>
+    </div>
+    {% if g.user['id'] == post['user_id'] %}
+    <a class="action" href="{{ url_for('blog.update', id=post['id']) }}"
+      >Edit</a
+    >
+    <a class="action" href="{{ url_for('blog.delete', id=post['id']) }}"
+      >Delete</a
+    >
+    {% endif %} {% if post in g.user['favorites']%}
+    <a class="action" href="{{ url_for('blog.unfavorite', id=post['id']) }}"
+      >Delete from favorites</a
+    >
+    {% else %}
+    <a class="action" href="{{ url_for('blog.favorite', id=post['id']) }}"
+      >Add to favorites</a
+    >
+    {% endif %}
+  </header>
+  <p class="body">{{ post['body'] }}</p>
+</article>
+{% if not loop.last %}
+<hr />
+{% endif %} {% endfor %} {% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %} {% block content %}
+<form method="post">
+  <input
+    name="username"
+    id="username"
+    class="form-control"
+    placeholder="Username"
+    required
+  />
+  <input
+    type="password"
+    name="password"
+    id="password"
+    class="form-control"
+    placeholder="Password"
+    required
+  />
+  <label for="groups">Groups</label>
+  <ul>
+    {% for group in data %}
+    <li>
+      <input
+        type="checkbox"
+        name="groups"
+        id="{{group.title}}"
+        value="{{group.id}}"
+      />
+      <span style="margin-left: 15px">{{ group.title }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Register
+  </button>
+</form>
+{% endblock %}
